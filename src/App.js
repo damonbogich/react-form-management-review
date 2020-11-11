@@ -8,21 +8,14 @@ function App() {
   const [teamMembers, setTeamMembers] = useState([]);
 
   const addMember = member => {
-    if (teamMembers !== []) {
-      console.log('if entered')
+    console.log(member, 'member from addmember')
       setTeamMembers([
         ...teamMembers,
         {
           member
         }
       ]);
-    }
-    else {
-      console.log('else entered')
-      setTeamMembers([member])
-    }
   }
-  console.log(teamMembers, 'teamembers again')
 
   return (
     <div className="App">

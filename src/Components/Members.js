@@ -1,10 +1,10 @@
 
 
 export default function Members(props) {
-    console.log(props, 'member props')
-    console.log(props.members, 'right below')
+    console.log(props.members, 'member props')
     const users = props.members.map(item => {
-        return <li>{item.member.username}</li>
+        console.log(item.member.member, 'from inside map')
+        return <li>{item.member.member.username}</li>
     })
     
     return (
