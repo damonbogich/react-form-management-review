@@ -6,15 +6,10 @@ export default function Form(props) {
 
     const addMember = props.addMember;
 
-    const handleNameChange = e => {
-        setMember({...member, username: e.target.value})
+    const handleChange = e => {
+        setMember({...member, [e.target.name]: e.target.value})
     };
-    const handlePasswordChange = e => {
-        setMember({...member, password: e.target.value})
-    };
-    const handleRoleChange = e => {
-        setMember({...member, role: e.target.value})
-    };
+    
     const handleSubmit = e => {
         console.log(member, 'member from handlesubmit')
         e.preventDefault();
@@ -24,13 +19,13 @@ export default function Form(props) {
     <div>
         <form onSubmit={e => handleSubmit(e)}>
             <label>Name:
-                <input value={member['username']} onChange={e => handleNameChange(e)} type='text'name='username'/>
+                <input value={member['username']} onChange={e => handleChange(e)} type='text'name='username'/>
             </label>
             <label>Email:
-                <input value={member['password']} onChange={e => handlePasswordChange(e)} type='text'name='password'/>
+                <input value={member['password']} onChange={e => handleChange(e)} type='text'name='password'/>
             </label>
             <label>Role:
-                <input value={member['role']} onChange={e => handleRoleChange(e)} type='text'name='role'/>
+                <input value={member['role']} onChange={e => handleChange(e)} type='text'name='role'/>
             </label>
             <button>Submit</button>
         </form>
