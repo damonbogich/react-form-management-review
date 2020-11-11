@@ -1,10 +1,9 @@
 import react, {useState} from 'react';
 
 export default function Form(props) {
-    
-    const [member, setMember] = useState({ username: "", password: "", role: ""});
-
-    const addMember = props.addMember;
+    const {addMember, setMember, member} = props;
+    console.log(addMember, 'hereaddmember');
+    console.log(member, 'hereaddmember')
 
     const handleChange = e => {
         setMember({...member, [e.target.name]: e.target.value})
@@ -15,17 +14,18 @@ export default function Form(props) {
         e.preventDefault();
         addMember({member})
     }
+    //remember to add value prop for each input
     return (
     <div>
         <form onSubmit={e => handleSubmit(e)}>
             <label>Name:
-                <input value={member['username']} onChange={e => handleChange(e)} type='text'name='username'/>
+                <input onChange={e => handleChange(e)}  type='text'name='username'/>
             </label>
             <label>Email:
-                <input value={member['password']} onChange={e => handleChange(e)} type='text'name='password'/>
+                <input onChange={e => handleChange(e)}  type='text'name='password'/>
             </label>
             <label>Role:
-                <input value={member['role']} onChange={e => handleChange(e)} type='text'name='role'/>
+                <input onChange={e => handleChange(e)}  type='text'name='role'/>
             </label>
             <button>Submit</button>
         </form>
